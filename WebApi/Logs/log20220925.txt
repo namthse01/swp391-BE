@@ -1,0 +1,28 @@
+2022-09-25 00:00:41.595 +07:00 [INF] Finished Seeding Default Data
+2022-09-25 00:00:41.641 +07:00 [INF] Application Starting
+2022-09-25 00:00:58.237 +07:00 [ERR] Internal service error
+System.InvalidOperationException: Cannot create a DbSet for 'User' because this type is not included in the model for the context.
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityType()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.CheckState()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityQueryable()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Infrastructure.Persistence.Repository.GenericRepository`1.GetAll(Expression`1 predicate) in D:\Workspace\Dai\veterinary-quarantine-management-system-api\Infrastructure.Persistence\Repositories\GenericRepository.cs:line 41
+   at Infrastructure.Identity.Services.AccountService.AuthenticateAsync(AuthenticationRequest request) in D:\Workspace\Dai\veterinary-quarantine-management-system-api\Infrastructure.Identity\Services\AccountService.cs:line 50
+   at WebApi.Controllers.AccountController.AuthenticateAsync(AuthenticationRequest request) in D:\Workspace\Dai\veterinary-quarantine-management-system-api\WebApi\Controllers\AccountController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApi.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in D:\Workspace\Dai\veterinary-quarantine-management-system-api\WebApi\Middlewares\ErrorHandlerMiddleware.cs:line 22
+2022-09-25 00:03:09.186 +07:00 [INF] Finished Seeding Default Data
+2022-09-25 00:03:09.230 +07:00 [INF] Application Starting
+2022-09-25 00:07:53.205 +07:00 [INF] Finished Seeding Default Data
+2022-09-25 00:07:53.257 +07:00 [INF] Application Starting

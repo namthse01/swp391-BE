@@ -1,0 +1,6 @@
+2022-09-22 21:56:14.143 +07:00 [INF] Finished Seeding Default Data
+2022-09-22 21:56:14.289 +07:00 [INF] Application Starting
+2022-09-22 22:06:00.842 +07:00 [INF] Finished Seeding Default Data
+2022-09-22 22:06:00.884 +07:00 [INF] Application Starting
+2022-09-22 22:21:36.151 +07:00 [INF] Finished Seeding Default Data
+2022-09-22 22:21:36.206 +07:00 [INF] Application Starting

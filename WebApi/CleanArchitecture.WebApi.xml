@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.AccountController.AuthenticateAsync(Application.DTOs.Identity.AuthenticationRequest)">
+            <summary>
+            Authenticate with email and password
+            </summary>
+            <param name="request">The Authentication Request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.v1.FieldController.GetList(Application.Features.Field.Queries.GetList.FieldGetListQuery)">
+            <summary>
+            Get list field
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.v1.FieldController.Create(Application.Features.Field.Command.Add.FieldCreateCommand)">
+            <summary>
+            Create a new field
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
