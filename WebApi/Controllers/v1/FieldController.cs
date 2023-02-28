@@ -1,4 +1,5 @@
 ﻿using Application.Features.Field.Command.Add;
+using Application.Features.Field.Queries.Detail;
 using Application.Features.Field.Queries.GetList;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Constants;
@@ -19,6 +20,12 @@ namespace WebApi.Controllers.v1
             return Ok(await Mediator.Send(query));
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get([FromRoute] Guid id)
+        {
+            return Ok(await Mediator.Send(new FieldDetailQuery() { Id = id }));
+        }
+
         /// <summary>
         /// Create a new field
         /// </summary>
@@ -26,6 +33,12 @@ namespace WebApi.Controllers.v1
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] FieldCreateCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] FieldUpdateCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

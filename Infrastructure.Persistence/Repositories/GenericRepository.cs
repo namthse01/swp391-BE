@@ -21,7 +21,6 @@ namespace Infrastructure.Persistence.Repository
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             await _dbContext.Set<TEntity>().AddAsync(entity);
-            //await _dbContext.SaveChangesAsync();
             return entity;
         }
 

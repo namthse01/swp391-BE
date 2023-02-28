@@ -11,5 +11,6 @@ public class GeneralProfile : Profile
     {
         CreateMap<Field, FieldListViewModel>().ReverseMap();
         CreateMap<FieldCreateCommand, Field>();
+        CreateMap<FieldUpdateCommand, Field>().ReverseMap();
     }
 }
