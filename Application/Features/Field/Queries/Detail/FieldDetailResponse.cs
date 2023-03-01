@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Common;
 
 namespace Application.Features.Field.Queries.Detail
 {
@@ -12,7 +13,7 @@ namespace Application.Features.Field.Queries.Detail
         public string Description { get; set; }
         public string Address { get; set; }
         public FieldOwnerResponse Owner { get; set; }
-        public string CategoryName { get; set; }
+        public FieldCategoryResponse Category { get; set; }
         public List<FieldServiceResponse> Services { get; set; }
     }
 
@@ -24,6 +25,8 @@ namespace Application.Features.Field.Queries.Detail
 
     public class FieldCategoryResponse
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 
     public class FieldOwnerResponse
