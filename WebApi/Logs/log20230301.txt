@@ -1,2 +1,8 @@
 2023-03-01 16:07:48.542 +07:00 [INF] Finished Seeding Default Data
 2023-03-01 16:07:48.699 +07:00 [INF] Application Starting
+2023-03-01 20:54:09.196 +07:00 [INF] Finished Seeding Default Data
+2023-03-01 20:54:09.263 +07:00 [INF] Application Starting
+2023-03-01 20:54:55.994 +07:00 [INF] Finished Seeding Default Data
+2023-03-01 20:54:56.022 +07:00 [INF] Application Starting
+2023-03-01 21:09:48.854 +07:00 [INF] Finished Seeding Default Data
+2023-03-01 21:09:48.924 +07:00 [INF] Application Starting

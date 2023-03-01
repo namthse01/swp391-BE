@@ -22,7 +22,9 @@
 		<ProjectReference Include="..\Domain\Domain.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+		<Folder Include="Features\Category\Command\" />
 		<Folder Include="Features\Field\Command\Add\" />
+		<Folder Include="Features\Manager\Command\" />
 		<Folder Include="Features\Player\" />
 		<Folder Include="Parameters\" />
 	</ItemGroup>

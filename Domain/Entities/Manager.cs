@@ -12,6 +12,4 @@ public class Manager : BaseEntity
 
     public Collection<Service> Services { get; set; }
     public Collection<Field> Fields { get; set; }
-    public Collection<User> Users { get; set; }
-    public Collection<Role> Roles { get; set; }
 }

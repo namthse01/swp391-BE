@@ -22,15 +22,15 @@ namespace Application.Features.Manager.Queries.Detail
                 .GetAll(x => x.Id == request.Id)
                 .Select(x => new ManagerDetailResponse
                 {
-                    UserId = (ManagerUserResponse)x.Users.Select(y => new ManagerUserResponse()
+                    User = new ManagerUserResponse()
                     {
-                        UserName = y.Username,
-                        UserPhone = y.Phone,
-                    }),
-                    RoleId = (ManagerRoledResponse)x.Roles.Select(y => new ManagerRoledResponse()
+                        Username = x.User.Username,
+                        Phone = x.User.Phone,
+                    },
+                    Role = new ManagerRoleResponse()
                     {
-                        RoleName = y.Name
-                    })
+                        Name = x.Role.Name
+                    }
                 })
                 .FirstOrDefaultAsync();
 

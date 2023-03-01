@@ -8,18 +8,18 @@ namespace Application.Features.Manager.Queries.Detail
 {
     public class ManagerDetailResponse
     {
-        public ManagerUserResponse UserId { get; set; }
-        public ManagerRoledResponse RoleId { get; set; }
+        public ManagerUserResponse User { get; set; }
+        public ManagerRoleResponse Role { get; set; }
     }
 
     public class ManagerUserResponse
     {
-        public string UserName { get; set; }
-        public string UserPhone { get; set; }
+        public string Username { get; set; }
+        public string Phone { get; set; }
     }
 
-    public class ManagerRoledResponse
+    public class ManagerRoleResponse
     {
-        public string RoleName { get; set; }
+        public string Name { get; set; }
     }
 }
