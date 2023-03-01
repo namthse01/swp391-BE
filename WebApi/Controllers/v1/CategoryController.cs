@@ -33,7 +33,7 @@ namespace WebApi.Controllers.v1
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost]//test
         //public async Task<IActionResult> Create([FromBody] command)
         //{
         //    return Ok(await Mediator.Send(command));
