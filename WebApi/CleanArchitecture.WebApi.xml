@@ -11,6 +11,13 @@
             <param name="request">The Authentication Request</param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.v1.CategoryController.GetList(Application.Features.Category.Queries.GetList.CategoryGetListQuery)">
+            <summary>
+            Get list category
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.v1.FieldController.GetList(Application.Features.Field.Queries.GetList.FieldGetListQuery)">
             <summary>
             Get list field

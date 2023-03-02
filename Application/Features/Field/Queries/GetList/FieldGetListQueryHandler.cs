@@ -21,7 +21,8 @@ public class FieldGetListQueryHandler : IRequestHandler<FieldGetListQuery, Paged
         CancellationToken cancellationToken)
     {
         var query = _unitOfWork.Repository<Domain.Entities.Field>()
-            .GetAll(x => string.IsNullOrEmpty(request.Name) || x.Name.ToLower().Contains(request.Name));
+            .GetAll(x => string.IsNullOrEmpty(request.Name) || x.Name.ToLower().Contains(request.Name))
+            .Include(x => x.Category);
         int total = await query.CountAsync();
         if (total == 0)
         {
