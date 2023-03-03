@@ -38,7 +38,7 @@ namespace WebApi.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] FieldUpdateCommand command)
+        public async Task<IActionResult> Update([FromBody] FieldCreateCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

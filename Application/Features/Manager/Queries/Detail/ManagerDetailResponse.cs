@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Manager.Queries.Detail
 {
-    public class ManagerDetailResponse
+    public class OrderDetailResponse
     {
         public ManagerUserResponse User { get; set; }
         public ManagerRoleResponse Role { get; set; }

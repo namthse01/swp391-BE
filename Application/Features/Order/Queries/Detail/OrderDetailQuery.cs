@@ -2,7 +2,7 @@
 using Application.Wrappers;
 using MediatR;
 
-namespace Application.Features.Manager.Queries.Detail;
+namespace Application.Features.Order.Queries.Detail;
 
 public class OrderDetailQuery : IRequest<Response<OrderDetailResponse>>
 {

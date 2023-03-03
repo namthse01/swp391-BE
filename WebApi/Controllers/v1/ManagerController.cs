@@ -1,4 +1,6 @@
-﻿using Application.Features.Manager.Queries.Detail;
+﻿using Application.Features.Manager.Command.Add;
+using Application.Features.Manager.Command.Update;
+using Application.Features.Manager.Queries.Detail;
 using Application.Features.Manager.Queries.GetList;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,17 +33,17 @@ namespace WebApi.Controllers.v1
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        /*  [HttpPost]
-          public async Task<IActionResult> Create([FromBody]  command)
-          {
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] ManagerCreateCommand command)
+        {
               return Ok(await Mediator.Send(command));
-          }
+        }
 
-          [HttpPut]
-          public async Task<IActionResult> Update([FromBody] FieldUpdateCommand command)
-          {
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] ManagerUpdateCommand command)
+        {
               return Ok(await Mediator.Send(command));
-          }
-      }*/
+        }
+        
     }
 }

@@ -4,7 +4,7 @@ using Application.Wrappers;
 using AutoMapper;
 using MediatR;
 
-namespace Application.Features.Field.Command.Add;
+namespace Application.Features.Field.Command.Update;
 
 public class FieldUpdateCommandHandler : IRequestHandler<FieldUpdateCommand, Response<Guid>>
 {

@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace Application.Features.Field.Command.Delete
+namespace Application.Features.Manager.Command.Delete
 {
-    public partial class CategoryDeleteCommand : IRequest<Response<Guid>>
+    public partial class ManagerDeleteCommand : IRequest<Response<Guid>>
     {
         public Guid Id { get; set; }
     }

@@ -26,7 +26,7 @@ namespace Application.Features.Manager.Queries.GetList
         public async Task<PagedResponse<List<ManagerListViewModel>>> Handle(ManagerGetListQuery request,
             CancellationToken cancellationToken)
         {
-            var query = _unitOfWork.Repository<Domain.Entities.Field>()
+            var query = _unitOfWork.Repository<Domain.Entities.Manager>()
                 .GetAll();
             int total = await query.CountAsync();
             if (total == 0)

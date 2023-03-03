@@ -22,10 +22,32 @@
 		<ProjectReference Include="..\Domain\Domain.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Features\Category\Command\" />
 		<Folder Include="Features\Field\Command\Add\" />
-		<Folder Include="Features\Manager\Command\" />
-		<Folder Include="Features\Player\" />
+		<Folder Include="Features\ServiceField\Command\Add\" />
+		<Folder Include="Features\ServiceField\Command\Delete\" />
+		<Folder Include="Features\ServiceField\Command\Update\" />
+		<Folder Include="Features\ServiceField\Queries\Detail\" />
+		<Folder Include="Features\ServiceField\Queries\GetList\" />
+		<Folder Include="Features\Service\Command\Add\" />
+		<Folder Include="Features\Service\Command\Delete\" />
+		<Folder Include="Features\Service\Command\Update\" />
+		<Folder Include="Features\Service\Queries\Detail\" />
+		<Folder Include="Features\Service\Queries\GetList\" />
+		<Folder Include="Features\TransactionService\Command\Add\" />
+		<Folder Include="Features\TransactionService\Command\Delete\" />
+		<Folder Include="Features\TransactionService\Command\Update\" />
+		<Folder Include="Features\TransactionService\Queries\Detail\" />
+		<Folder Include="Features\TransactionService\Queries\GetList\" />
+		<Folder Include="Features\Transaction\Command\Add\" />
+		<Folder Include="Features\Transaction\Command\Delete\" />
+		<Folder Include="Features\Transaction\Command\Update\" />
+		<Folder Include="Features\Transaction\Queries\Detail\" />
+		<Folder Include="Features\Transaction\Queries\GetList\" />
+		<Folder Include="Features\User\Command\Add\" />
+		<Folder Include="Features\User\Command\Delete\" />
+		<Folder Include="Features\User\Command\Update\" />
+		<Folder Include="Features\User\Queries\Detail\" />
+		<Folder Include="Features\User\Queries\GetList\" />
 		<Folder Include="Parameters\" />
 	</ItemGroup>
 

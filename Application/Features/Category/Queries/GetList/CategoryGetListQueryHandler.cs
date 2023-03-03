@@ -20,7 +20,7 @@ public class CategoryGetListQueryHandler : IRequestHandler<CategoryGetListQuery,
     public async Task<PagedResponse<List<CategoryListViewModel>>> Handle(CategoryGetListQuery request,
         CancellationToken cancellationToken)
     {
-        var query = _unitOfWork.Repository<Domain.Entities.Field>()
+        var query = _unitOfWork.Repository<Domain.Entities.Category>()
             .GetAll(x => string.IsNullOrEmpty(request.Name) || x.Name.ToLower().Contains(request.Name));
         int total = await query.CountAsync();
         if (total == 0)

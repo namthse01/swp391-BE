@@ -1,7 +1,7 @@
 ﻿using Application.Wrappers;
 using MediatR;
 
-namespace Application.Features.Field.Command.Add;
+namespace Application.Features.Field.Command.Update;
 
 public class FieldUpdateCommand : IRequest<Response<Guid>>
 {
