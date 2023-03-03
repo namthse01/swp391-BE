@@ -10,7 +10,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Application.Features.Field.Command.Delete
 {
-    public partial class CategoryDeleteCommand : IRequest<Response<Guid>>
+    public partial class FieldDeleteCommand : IRequest<Response<Guid>>
     {
         public Guid Id { get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using Application.Features.Field.Command.Add;
+using Application.Features.Field.Command.Update;
 using Application.Features.Field.Queries.Detail;
 using Application.Features.Field.Queries.GetList;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +39,7 @@ namespace WebApi.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] FieldCreateCommand command)
+        public async Task<IActionResult> Update([FromBody] FieldUpdateCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

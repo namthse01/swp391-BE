@@ -6,18 +6,18 @@ using MediatR;
 
 namespace Application.Features.Field.Command.Delete
 {
-    public partial class CategoryDeleteCommand
+    public partial class FieldDeleteCommand
     {
-        public class ManagerDeleteCommandHandler : IRequestHandler<CategoryDeleteCommand, Response<Guid>>
+        public class FieldDeleteCommandHandler : IRequestHandler<FieldDeleteCommand, Response<Guid>>
         {
             private readonly IUnitOfWork _unitOfWork;
             private readonly IMapper _mapper;
-            public ManagerDeleteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            public FieldDeleteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
             {
                 _mapper = mapper;
                 _unitOfWork = unitOfWork;
             }          
-            public async Task<Response<Guid>> Handle(CategoryDeleteCommand request, CancellationToken cancellationToken)
+            public async Task<Response<Guid>> Handle(FieldDeleteCommand request, CancellationToken cancellationToken)
             {
                 var field = await _unitOfWork.Repository<Domain.Entities.Field>().FindSingleAsync(x => x.Id == request.Id);
                 if (field == null)

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Features.Manager.Queries.Detail;
 
-public class OrderDetailQuery : IRequest<Response<OrderDetailResponse>>
+public class ManagerDetailQuery : IRequest<Response<ManagerDetailResponse>>
 {
     public Guid Id { get; set; }
 }
