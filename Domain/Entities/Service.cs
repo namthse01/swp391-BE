@@ -8,7 +8,7 @@ public class Service : BaseEntity
 {
     [StringLength(255)] public string Name { get; set; }
     public decimal Price { get; set; }
-    public Guid ManagerId { get; set; }
+    public Guid? ManagerId { get; set; }
 
     public Manager Manager { get; set; }
     public Collection<ServiceField> ServiceFields { get; set; }

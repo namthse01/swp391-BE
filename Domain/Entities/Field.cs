@@ -17,4 +17,6 @@ public class Field : BaseEntity
 
     public Collection<ServiceField> ServiceFields { get; set; }
     public Collection<Transaction> Transactions { get; set; }
+    //ko ro
+    public Collection<User> Users { get; set; }
 }
