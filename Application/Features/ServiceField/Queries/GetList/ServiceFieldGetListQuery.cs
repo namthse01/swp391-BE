@@ -11,6 +11,5 @@ namespace Application.Features.ServiceField.Queries.GetList
 {
     public class ServiceFieldGetListQuery : FilterRequestModel, IRequest<PagedResponse<List<ServiceFieldListViewModel>>>
     {
-        public Guid Id { get; set; }
     }
 }
