@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Transaction.Command.Delete
+namespace Application.Features.TransactionService.Command.Delete
 {
-    public class TransactionDeleteCommand : IRequest<Response<Guid>>
+    public class TransactionServiceDeleteCommand : IRequest<Response<Guid>>
     {
         public Guid Id { get; set; }
     }

@@ -27,7 +27,7 @@ namespace Application.Features.Order.Queries.GetList
             CancellationToken cancellationToken)
         {
             var query = _unitOfWork.Repository<Domain.Entities.Order>()
-                .GetAll();
+                .GetAll(x => string.IsNullOrEmpty(request.Name) || x.Name.ToLower().Contains(request.Name));
             int total = await query.CountAsync();
             if (total == 0)
             {

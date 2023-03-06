@@ -23,16 +23,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Features\Field\Command\Add\" />
-		<Folder Include="Features\TransactionService\Command\Add\" />
-		<Folder Include="Features\TransactionService\Command\Delete\" />
-		<Folder Include="Features\TransactionService\Command\Update\" />
-		<Folder Include="Features\TransactionService\Queries\Detail\" />
-		<Folder Include="Features\TransactionService\Queries\GetList\" />
-		<Folder Include="Features\User\Command\Add\" />
-		<Folder Include="Features\User\Command\Delete\" />
-		<Folder Include="Features\User\Command\Update\" />
-		<Folder Include="Features\User\Queries\Detail\" />
-		<Folder Include="Features\User\Queries\GetList\" />
 		<Folder Include="Parameters\" />
 	</ItemGroup>
 

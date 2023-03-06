@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Transaction.Queries.GetList
 {
-    internal class TransactionListViewModel
+    public class TransactionListViewModel 
     {
+        public string Name { get; set; }
+        public int Slot { get; set; }
+        public DateTime Date { get; set; }
     }
 }

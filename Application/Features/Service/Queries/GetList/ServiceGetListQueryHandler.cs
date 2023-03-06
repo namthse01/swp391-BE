@@ -26,7 +26,7 @@ namespace Application.Features.Service.Queries.GetList
         public async Task<PagedResponse<List<ServiceListViewModel>>> Handle(ServiceGetListQuery request, CancellationToken cancellationToken)
         {
             var query = _unitOfWork.Repository<Domain.Entities.Service>()
-            .GetAll();
+            .GetAll(x => string.IsNullOrEmpty(request.Name) || x.Name.ToLower().Contains(request.Name));
             int total = await query.CountAsync();
             if (total == 0)
             {
