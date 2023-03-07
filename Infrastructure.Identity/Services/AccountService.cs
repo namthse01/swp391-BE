@@ -52,6 +52,8 @@ namespace Infrastructure.Identity.Services
         public async Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request)
         {
             var user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, request.Email))
+                .Include(x => x.Players)
+                .Include(x => x.Managers)
                 .FirstOrDefaultAsync();
             if (user == null)
             {
@@ -84,10 +86,27 @@ namespace Infrastructure.Identity.Services
             }
 
             var user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, userInfo.Email))
+                .Include(x => x.Players)
+                .Include(x => x.Managers)
                 .FirstOrDefaultAsync();
+
             if (user == null)
             {
-                throw new ValidationException($"No Accounts Registered with {userInfo.Email}.");
+                var player = new Player
+                {
+                    User = new User()
+                    {
+                        Email = userInfo.Email,
+                        Username = userInfo.Email,
+                    }
+                };
+                await _unitOfWork.Repository<Player>().AddAsync(player);
+                await _unitOfWork.CommitAsync();
+
+                user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, userInfo.Email))
+                    .Include(x => x.Players)
+                    .Include(x => x.Managers)
+                    .FirstOrDefaultAsync();
             }
 
             JwtSecurityToken jwtSecurityToken = await GenerateJWToken(user);
@@ -100,15 +119,25 @@ namespace Infrastructure.Identity.Services
             return new Response<AuthenticationResponse>(response, $"Authenticated {user.Email}");
         }
 
-        private async Task<JwtSecurityToken> GenerateJWToken(User User)
+        private async Task<JwtSecurityToken> GenerateJWToken(User user)
         {
+            string role;
+            if (user.Players.Any())
+            {
+                role = "Player";
+            }
+            else
+            {
+                role = "Manager";
+            }
+
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, User.Username),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, User.Email),
-                new Claim("uid", User.Id.ToString()),
-                //new Claim(ClaimTypes.Role, User.Role.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("uid", user.Id.ToString()),
+                new Claim(ClaimTypes.Role, role),
             };
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
