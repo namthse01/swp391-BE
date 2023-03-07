@@ -8,7 +8,6 @@ using WebApi.Constants;
 namespace WebApi.Controllers
 {
     [Route(RouterConstants.Account)]
-
     public class AccountController : BaseApiController
     {
         private readonly IAccountService _accountService;
@@ -28,6 +27,14 @@ namespace WebApi.Controllers
         public async Task<IActionResult> AuthenticateAsync(AuthenticationRequest request)
         {
             var response = await _accountService.AuthenticateAsync(request);
+            return Ok(response);
+        }
+
+        [ProducesResponseType(typeof(Response<AuthenticationResponse>), (int)HttpStatusCode.OK)]
+        [HttpPost("google-authenticate")]
+        public async Task<IActionResult> GoogleAuthenticateAsync(GoogleAuthenticationRequest request)
+        {
+            var response = await _accountService.GoogleAuthenticateAsync(request);
             return Ok(response);
         }
     }

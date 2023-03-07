@@ -12,6 +12,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using IMP.Application.Interfaces;
 
 namespace Infrastructure.Identity.Services
 {
@@ -21,11 +22,13 @@ namespace Infrastructure.Identity.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<User> _userRepository;
         private readonly JWTSettings _jwtSettings;
+        private readonly IGoogleService _googleService;
 
         public AccountService(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor,
-            IOptions<JWTSettings> options)
+            IOptions<JWTSettings> options, IGoogleService googleService)
         {
             _httpContextAccessor = httpContextAccessor;
+            _googleService = googleService;
             _unitOfWork = unitOfWork;
             _userRepository = unitOfWork.Repository<User>();
             _jwtSettings = options.Value;
@@ -59,6 +62,32 @@ namespace Infrastructure.Identity.Services
             if (!isCorrectPassword)
             {
                 throw new ValidationException($"Invalid Credentials for '{request.Email}'.");
+            }
+
+            JwtSecurityToken jwtSecurityToken = await GenerateJWToken(user);
+            AuthenticationResponse response = new AuthenticationResponse();
+            response.Id = user.Id;
+            response.JWToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            response.Email = user.Email;
+            response.Account = user.Username;
+
+            return new Response<AuthenticationResponse>(response, $"Authenticated {user.Email}");
+        }
+
+        public async Task<Response<AuthenticationResponse>> GoogleAuthenticateAsync(
+            GoogleAuthenticationRequest request)
+        {
+            var userInfo = await _googleService.ValidateIdToken(request.Token);
+            if (userInfo == null)
+            {
+                throw new ValidationException("Token not valid");
+            }
+
+            var user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, userInfo.Email))
+                .FirstOrDefaultAsync();
+            if (user == null)
+            {
+                throw new ValidationException($"No Accounts Registered with {userInfo.Email}.");
             }
 
             JwtSecurityToken jwtSecurityToken = await GenerateJWToken(user);
