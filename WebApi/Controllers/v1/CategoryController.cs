@@ -1,7 +1,7 @@
-﻿//using Application.Features.Category.Command.Add;
+﻿using Application.Features.Category.Command.Add;
+using Application.Features.Category.Command.Update;
 using Application.Features.Category.Queries.Detail;
 using Application.Features.Category.Queries.GetList;
-using Application.Features.Field.Command.Add;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Constants;
@@ -33,16 +33,16 @@ namespace WebApi.Controllers.v1
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost]//test
-        //public async Task<IActionResult> Create([FromBody] command)
-        //{
-        //    return Ok(await Mediator.Send(command));
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CategoryCreateCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
 
-        //[HttpPut]
-        //public async Task<IActionResult> Update([FromBody] FieldUpdateCommand command)
-        //{
-        //    return Ok(await Mediator.Send(command));
-        //}
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] CategoryUpdateCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }
