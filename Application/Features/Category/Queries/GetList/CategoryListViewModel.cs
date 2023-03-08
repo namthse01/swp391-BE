@@ -1,6 +1,14 @@
-﻿namespace Application.Features.Category.Queries.GetList;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class CategoryListViewModel
+namespace Application.Features.Category.Queries.GetList
 {
-    public string Name { get; set; }
+    public class CategoryListViewModel
+    {
+        public string Name { get; set; }
+        public string CreateBy { get; set; }
+    }
 }

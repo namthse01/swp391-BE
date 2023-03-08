@@ -1,0 +1,2 @@
+2023-02-25 16:08:21.207 +07:00 [INF] Finished Seeding Default Data
+2023-02-25 16:08:21.252 +07:00 [INF] Application Starting

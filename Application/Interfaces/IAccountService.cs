@@ -6,4 +6,5 @@ namespace Application.Interfaces;
 public interface IAccountService
 {
     Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request);
+    Task<Response<AuthenticationResponse>> GoogleAuthenticateAsync(GoogleAuthenticationRequest request);
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Category.Queries.GetList;
 
-public class CategoryGetListQueryHandler : IRequestHandler<CategoryGetListQuery, PagedResponse<List<CategoryListViewModel>>>
+    public class CategoryGetListQueryHandler : IRequestHandler<CategoryGetListQuery, PagedResponse<List<CategoryListViewModel>>>
 {
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
@@ -17,7 +17,7 @@ public class CategoryGetListQueryHandler : IRequestHandler<CategoryGetListQuery,
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<PagedResponse<List<CategoryListViewModel>>> Handle(CategoryGetListQuery request,
+    public async Task<PagedResponse<List<CategoryListViewModel>>> Handle(CategoryGetListQuery request, 
         CancellationToken cancellationToken)
     {
         var query = _unitOfWork.Repository<Domain.Entities.Category>()
@@ -29,8 +29,10 @@ public class CategoryGetListQueryHandler : IRequestHandler<CategoryGetListQuery,
         }
 
         var categories = await query.ToListAsync();
+
         var viewCategories = _mapper.Map<List<CategoryListViewModel>>(categories);
 
         return new PagedResponse<List<CategoryListViewModel>>(total, viewCategories);
     }
 }
+

@@ -23,6 +23,8 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Features\Field\Command\Add\" />
+		<Folder Include="Features\Booking\" />
+		<Folder Include="Features\Player\" />
 		<Folder Include="Parameters\" />
 	</ItemGroup>
 

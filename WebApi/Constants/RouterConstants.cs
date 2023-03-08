@@ -1,4 +1,6 @@
-﻿namespace WebApi.Constants
+﻿using Org.BouncyCastle.Asn1.X509;
+
+namespace WebApi.Constants
 {
     public struct RouterConstants
     {

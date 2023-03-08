@@ -1,0 +1,132 @@
+2023-03-02 14:16:31.304 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 14:16:31.350 +07:00 [INF] Application Starting
+2023-03-02 14:46:51.532 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 14:46:51.565 +07:00 [INF] Application Starting
+2023-03-02 14:47:00.158 +07:00 [ERR] Internal service error
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Features.Category.Queries.GetList.CategoryGetListQueryHandler.Handle(CategoryGetListQuery request, CancellationToken cancellationToken) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Features\Category\Queries\GetList\CategoryGetListQueryHandler.cs:line 17
+   at Application.Behaviours.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Behaviours\ValidationBehaviour.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at WebApi.Controllers.v1.CategoryController.GetList(CategoryGetListQuery query) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Controllers\v1\CategoryController.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApi.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Middlewares\ErrorHandlerMiddleware.cs:line 22
+2023-03-02 14:54:18.061 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 14:54:18.111 +07:00 [INF] Application Starting
+2023-03-02 14:54:24.336 +07:00 [ERR] Internal service error
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Features.Category.Queries.GetList.CategoryGetListQueryHandler.Handle(CategoryGetListQuery request, CancellationToken cancellationToken) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Features\Category\Queries\GetList\CategoryGetListQueryHandler.cs:line 17
+   at Application.Behaviours.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Behaviours\ValidationBehaviour.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at WebApi.Controllers.v1.CategoryController.GetList(CategoryGetListQuery query) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Controllers\v1\CategoryController.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApi.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Middlewares\ErrorHandlerMiddleware.cs:line 22
+2023-03-02 15:15:31.231 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 15:15:31.289 +07:00 [INF] Application Starting
+2023-03-02 15:17:46.741 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 15:17:46.829 +07:00 [INF] Application Starting
+2023-03-02 15:18:04.144 +07:00 [ERR] Internal service error
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[Domain.Entities.Category, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[Application.Features.Category.Queries.GetList.CategoryListViewModel, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Category -> CategoryListViewModel
+Domain.Entities.Category -> Application.Features.Category.Queries.GetList.CategoryListViewModel
+   at lambda_method29(Closure , Category , CategoryListViewModel , ResolutionContext )
+   at lambda_method28(Closure , Object , List`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method28(Closure , Object , List`1 , ResolutionContext )
+   at Application.Features.Category.Queries.GetList.CategoryGetListQueryHandler.Handle(CategoryGetListQuery request, CancellationToken cancellationToken) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Features\Category\Queries\GetList\CategoryGetListQueryHandler.cs:line 33
+   at Application.Behaviours.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Behaviours\ValidationBehaviour.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at WebApi.Controllers.v1.CategoryController.GetList(CategoryGetListQuery query) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Controllers\v1\CategoryController.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApi.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Middlewares\ErrorHandlerMiddleware.cs:line 22
+2023-03-02 20:03:54.907 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 20:03:54.941 +07:00 [INF] Application Starting
+2023-03-02 20:05:54.998 +07:00 [ERR] Internal service error
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[Domain.Entities.Category, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[Application.Features.Category.Queries.GetList.CategoryListViewModel, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Category -> CategoryListViewModel
+Domain.Entities.Category -> Application.Features.Category.Queries.GetList.CategoryListViewModel
+   at lambda_method29(Closure , Category , CategoryListViewModel , ResolutionContext )
+   at lambda_method28(Closure , Object , List`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method28(Closure , Object , List`1 , ResolutionContext )
+   at Application.Features.Category.Queries.GetList.CategoryGetListQueryHandler.Handle(CategoryGetListQuery request, CancellationToken cancellationToken) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Features\Category\Queries\GetList\CategoryGetListQueryHandler.cs:line 33
+   at Application.Behaviours.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\Application\Behaviours\ValidationBehaviour.cs:line 33
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at WebApi.Controllers.v1.CategoryController.GetList(CategoryGetListQuery query) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Controllers\v1\CategoryController.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApi.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in D:\Source 2\linhlinh\Group4_FootBall Field\BE\swp391-BE\WebApi\Middlewares\ErrorHandlerMiddleware.cs:line 22
+2023-03-02 20:07:56.327 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 20:07:56.364 +07:00 [INF] Application Starting
+2023-03-02 20:12:54.402 +07:00 [INF] Finished Seeding Default Data
+2023-03-02 20:12:54.437 +07:00 [INF] Application Starting

@@ -12,6 +12,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using IMP.Application.Interfaces;
 
 namespace Infrastructure.Identity.Services
 {
@@ -21,11 +22,13 @@ namespace Infrastructure.Identity.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<User> _userRepository;
         private readonly JWTSettings _jwtSettings;
+        private readonly IGoogleService _googleService;
 
         public AccountService(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor,
-            IOptions<JWTSettings> options)
+            IOptions<JWTSettings> options, IGoogleService googleService)
         {
             _httpContextAccessor = httpContextAccessor;
+            _googleService = googleService;
             _unitOfWork = unitOfWork;
             _userRepository = unitOfWork.Repository<User>();
             _jwtSettings = options.Value;
@@ -49,6 +52,8 @@ namespace Infrastructure.Identity.Services
         public async Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request)
         {
             var user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, request.Email))
+                .Include(x => x.Players)
+                .Include(x => x.Managers)
                 .FirstOrDefaultAsync();
             if (user == null)
             {
@@ -71,15 +76,68 @@ namespace Infrastructure.Identity.Services
             return new Response<AuthenticationResponse>(response, $"Authenticated {user.Email}");
         }
 
-        private async Task<JwtSecurityToken> GenerateJWToken(User User)
+        public async Task<Response<AuthenticationResponse>> GoogleAuthenticateAsync(
+            GoogleAuthenticationRequest request)
         {
+            var userInfo = await _googleService.ValidateIdToken(request.Token);
+            if (userInfo == null)
+            {
+                throw new ValidationException("Token not valid");
+            }
+
+            var user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, userInfo.Email))
+                .Include(x => x.Players)
+                .Include(x => x.Managers)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                var player = new Player
+                {
+                    User = new User()
+                    {
+                        Email = userInfo.Email,
+                        Username = userInfo.Email,
+                    }
+                };
+                await _unitOfWork.Repository<Player>().AddAsync(player);
+                await _unitOfWork.CommitAsync();
+
+                user = await _userRepository.GetAll(user => EF.Functions.Like(user.Email, userInfo.Email))
+                    .Include(x => x.Players)
+                    .Include(x => x.Managers)
+                    .FirstOrDefaultAsync();
+            }
+
+            JwtSecurityToken jwtSecurityToken = await GenerateJWToken(user);
+            AuthenticationResponse response = new AuthenticationResponse();
+            response.Id = user.Id;
+            response.JWToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            response.Email = user.Email;
+            response.Account = user.Username;
+
+            return new Response<AuthenticationResponse>(response, $"Authenticated {user.Email}");
+        }
+
+        private async Task<JwtSecurityToken> GenerateJWToken(User user)
+        {
+            string role;
+            if (user.Players.Any())
+            {
+                role = "Player";
+            }
+            else
+            {
+                role = "Manager";
+            }
+
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, User.Username),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, User.Email),
-                new Claim("uid", User.Id.ToString()),
-                //new Claim(ClaimTypes.Role, User.Role.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("uid", user.Id.ToString()),
+                new Claim(ClaimTypes.Role, role),
             };
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));

@@ -11,12 +11,26 @@ namespace WebApi
     public class Startup
     {
         public IConfiguration _config { get; }
+
         public Startup(IConfiguration configuration)
         {
             _config = configuration;
         }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder =>
+                    {
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
+
             services.AddApplicationLayer();
             services.AddIdentityLayer(_config);
             services.AddPersistenceInfrastructure(_config);
@@ -40,18 +54,17 @@ namespace WebApi
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors("AllowSpecificOrigin");
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSwaggerExtension();
             app.UseErrorHandlingMiddleware();
             app.UseHealthChecks("/health");
 
-            app.UseEndpoints(endpoints =>
-             {
-                 endpoints.MapControllers();
-             });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

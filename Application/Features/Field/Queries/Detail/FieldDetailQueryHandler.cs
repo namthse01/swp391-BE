@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Wrappers;
+using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,7 +32,11 @@ namespace Application.Features.Field.Queries.Detail
                             Phone = x.Manager.User.Phone
                         }
                         : null,
-                    CategoryName = x.Category.Name,
+                    Category = new FieldCategoryResponse()
+                    {
+                        Id = x.Category.Id,
+                        Name = x.Category.Name
+                    },
                     Services = x.ServiceFields.Select(y => new FieldServiceResponse()
                     {
                         Name = y.Service.Name,
